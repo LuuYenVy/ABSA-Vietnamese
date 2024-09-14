@@ -240,7 +240,7 @@ def main():
         # num epochs: 5
     }
     dataset_files = {
-        'twitter': {
+        'comment': {
             'train': './datasets/comment/train.raw',
             'test': './datasets/comment/test.raw'
         },

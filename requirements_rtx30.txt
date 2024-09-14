@@ -1,5 +1,5 @@
 numpy
 torch
 --find-links https://download.pytorch.org/whl/torch_stable.html
-transformers==3.5.1
+
 

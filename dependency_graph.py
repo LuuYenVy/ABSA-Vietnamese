@@ -3,27 +3,28 @@ import numpy as np
 import pickle
 import argparse
 
+import shutil
 import os
-import py_vncorenlp
 
-# Đường dẫn tới nơi lưu mô hình
+# Đường dẫn tới thư mục mô hình
 model_path = 'D:/Thuc tap/ABSA-PyTorch/models/vncorenlp-models/VnCoreNLP-master/'
 
-# Tạo thư mục nếu chưa tồn tại
-if not os.path.exists(model_path):
-    os.makedirs(model_path)
+# Xóa thư mục 'models' nếu nó tồn tại
+if os.path.exists(os.path.join(model_path, 'models')):
+    shutil.rmtree(os.path.join(model_path, 'models'))
 
-# Tạo thư mục con 'models' nếu chưa tồn tại
-if not os.path.exists(os.path.join(model_path, 'models')):
-    os.makedirs(os.path.join(model_path, 'models'))
+# Tạo lại thư mục 'models'
+os.makedirs(os.path.join(model_path, 'models'))
 
 # Tải mô hình VnCoreNLP
+import py_vncorenlp
 py_vncorenlp.download_model(save_dir=model_path)
 
 from py_vncorenlp import VnCoreNLP
 
 # Khởi tạo VnCoreNLP
 vnlp = VnCoreNLP(model_path)
+
 
 
 

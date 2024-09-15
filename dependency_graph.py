@@ -4,9 +4,10 @@ import pickle
 import argparse
 
 # Đường dẫn tới mô hình VnCoreNLP
-py_vncorenlp.download_model(save_dir='D:\Thuc tap\ABSA-PyTorch\models\vncorenlp-models\VnCoreNLP-master\')
+py_vncorenlp.download_model(save_dir='D:/Thuc tap/ABSA-PyTorch/models/vncorenlp-models/VnCoreNLP-master/')
 # Khởi tạo VnCoreNLP
-vnlp = py_vncorenlp.VnCoreNLP(save_dir='D:\Thuc tap\ABSA-PyTorch\models\vncorenlp-models\VnCoreNLP-master\')
+vnlp = py_vncorenlp.download_model(save_dir='D:/Thuc tap/ABSA-PyTorch/models/vncorenlp-models/VnCoreNLP-master/')
+
 
 def dependency_adj_matrix(text):
     # Phân tích văn bản

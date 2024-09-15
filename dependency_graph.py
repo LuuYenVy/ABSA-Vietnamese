@@ -1,4 +1,4 @@
-from vncorenlp import VnCoreNLP
+from py_vncorenlp import VnCoreNLP
 import numpy as np
 import pickle
 import argparse

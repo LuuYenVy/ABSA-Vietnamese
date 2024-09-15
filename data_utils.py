@@ -160,20 +160,10 @@ class ABSADataset(Dataset):
 
 
 
-            # Kiểm tra và xử lý trước khi padding
-            max_seq_len = tokenizer.max_seq_len
-            current_size = idx2graph[i].shape[0]
-            
-            if current_size > max_seq_len:
-                # Nếu kích thước hiện tại lớn hơn max_seq_len, cần phải cắt bớt dữ liệu
-                idx2graph[i] = idx2graph[i][:max_seq_len]
-                current_size = max_seq_len
-            
-            # Tính toán giá trị padding
-            pad_width = ((0, max(0, max_seq_len - current_size)), (0, max(0, max_seq_len - idx2graph[i].shape[1])))
-            
-            # Thực hiện padding
-            dependency_graph = np.pad(idx2graph[i], pad_width, mode='constant')
+
+
+            dependency_graph = np.pad(idx2graph[i], \
+                ((0,tokenizer.max_seq_len-idx2graph[i].shape[0]),(0,tokenizer.max_seq_len-idx2graph[i].shape[0])), 'constant')
 
             data = {
                 'concat_bert_indices': concat_bert_indices,
